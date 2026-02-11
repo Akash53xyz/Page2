@@ -24,7 +24,7 @@
         <div class="left-col">
             <section>
                 <h2 class="section-title">Professional Summary</h2>
-                <p contenteditable="true" data-placeholder="2-3 sentences about your career goals..."></p>
+                <p contenteditable="true" data-placeholder="A 2-3 sentence overview of your career goals and the value you bring to a company."></p>
             </section>
 
             <section id="experience-section">
@@ -36,7 +36,7 @@
                             <strong contenteditable="true" data-placeholder="Job Title"></strong><br>
                             <em contenteditable="true" data-placeholder="Company Name"></em>
                             <ul contenteditable="true">
-                                <li>Achievement bullet point...</li>
+                                <li>Key accomplishment (4-6 bullets recommended for recent jobs).</li>
                             </ul>
                         </div>
                         <button class="delete-btn no-print" onclick="this.parentElement.remove()">×</button>
@@ -51,7 +51,7 @@
                     <div class="entry">
                         <div class="date" contenteditable="true" data-placeholder="Year"></div>
                         <div class="details">
-                            <strong contenteditable="true" data-placeholder="Degree"></strong><br>
+                            <strong contenteditable="true" data-placeholder="Degree / Major"></strong><br>
                             <em contenteditable="true" data-placeholder="Institution"></em>
                         </div>
                         <button class="delete-btn no-print" onclick="this.parentElement.remove()">×</button>
@@ -62,34 +62,43 @@
 
             <section>
                 <h2 class="section-title">Skills</h2>
-                <p><strong>Hard Skills:</strong></p>
-                <p contenteditable="true" data-placeholder="Technical skills..."></p>
-                <p style="margin-top:10px;"><strong>Soft Skills:</strong></p>
-                <p contenteditable="true" data-placeholder="Interpersonal skills..."></p>
+                <div class="skills-container">
+                    <strong>Hard Skills:</strong>
+                    <p contenteditable="true" data-placeholder="Technical skills (e.g., Python, SQL, CRM)"></p>
+                    <br>
+                    <strong>Soft Skills:</strong>
+                    <p contenteditable="true" data-placeholder="Interpersonal skills (e.g., Leadership, Communication)"></p>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="section-title">Certifications & Projects</h2>
+                <ul contenteditable="true" data-placeholder="Optional awards or projects...">
+                    <li>Project Title - Brief description of your role and result.</li>
+                </ul>
             </section>
         </div>
 
         <div class="right-col">
-            <div class="photo-box" onclick="document.getElementById('file-input').click()">
+            <div class="photo-box" id="photo-container" onclick="document.getElementById('file-input').click()">
                 <img id="profile-img" src="" alt="">
-                <div class="photo-placeholder">Click to Upload Photo</div>
+                <div class="photo-placeholder" id="upload-text">Click to Upload Photo</div>
                 <input type="file" id="file-input" accept="image/*" onchange="previewImage(event)" style="display:none">
             </div>
 
             <div class="personal-info">
-                <h2 class="section-title">Personal Info</h2>
+                <h2 class="section-title">Contact Information</h2>
                 <label>Phone</label>
-                <p contenteditable="true" data-placeholder="+00 000 000 000"></p>
+                <p contenteditable="true" data-placeholder="+00 000 0000000"></p>
+                
                 <label>Email</label>
                 <p contenteditable="true" data-placeholder="name@email.com"></p>
+                
                 <label>LinkedIn</label>
-                <p contenteditable="true" data-placeholder="linkedin.com/in/user"></p>
+                <p contenteditable="true" data-placeholder="linkedin.com/in/username"></p>
+                
                 <label>Address</label>
                 <p contenteditable="true" data-placeholder="City, Country"></p>
-                <label>Nationality</label>
-                <p contenteditable="true" data-placeholder="Nationality"></p>
-                <label>Languages</label>
-                <p contenteditable="true" data-placeholder="English, etc."></p>
             </div>
         </div>
     </div>
