@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Professional Resume Builder</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+
+<div class="toolbar no-print">
+    <button onclick="togglePreview()" id="previewBtn">Preview Mode</button>
+    <button onclick="downloadPDF()" class="download-btn">Download PDF</button>
+    <button onclick="resetForm()" class="reset-btn">Reset Form</button>
+</div>
+
+<div class="resume-page" id="resume-content">
+    <header class="main-header">
+        <h1 contenteditable="true" data-placeholder="YOUR NAME"></h1>
+        <p contenteditable="true" data-placeholder="Professional Job Title"></p>
+    </header>
+
+    <div class="resume-body">
+        <div class="left-col">
+            <section>
+                <h2 class="section-title">Professional Summary</h2>
+                <p contenteditable="true" data-placeholder="2-3 sentences about your career goals..."></p>
+            </section>
+
+            <section id="experience-section">
+                <h2 class="section-title">Work Experience</h2>
+                <div class="entry-group">
+                    <div class="entry">
+                        <div class="date" contenteditable="true" data-placeholder="Dates"></div>
+                        <div class="details">
+                            <strong contenteditable="true" data-placeholder="Job Title"></strong><br>
+                            <em contenteditable="true" data-placeholder="Company Name"></em>
+                            <ul contenteditable="true">
+                                <li>Achievement bullet point...</li>
+                            </ul>
+                        </div>
+                        <button class="delete-btn no-print" onclick="this.parentElement.remove()">×</button>
+                    </div>
+                </div>
+                <button class="add-btn no-print" onclick="addExperience()">+ Add Job</button>
+            </section>
+
+            <section id="education-section">
+                <h2 class="section-title">Education</h2>
+                <div class="entry-group">
+                    <div class="entry">
+                        <div class="date" contenteditable="true" data-placeholder="Year"></div>
+                        <div class="details">
+                            <strong contenteditable="true" data-placeholder="Degree"></strong><br>
+                            <em contenteditable="true" data-placeholder="Institution"></em>
+                        </div>
+                        <button class="delete-btn no-print" onclick="this.parentElement.remove()">×</button>
+                    </div>
+                </div>
+                <button class="add-btn no-print" onclick="addEducation()">+ Add Education</button>
+            </section>
+
+            <section>
+                <h2 class="section-title">Skills</h2>
+                <p><strong>Hard Skills:</strong></p>
+                <p contenteditable="true" data-placeholder="Technical skills..."></p>
+                <p style="margin-top:10px;"><strong>Soft Skills:</strong></p>
+                <p contenteditable="true" data-placeholder="Interpersonal skills..."></p>
+            </section>
+        </div>
+
+        <div class="right-col">
+            <div class="photo-box" onclick="document.getElementById('file-input').click()">
+                <img id="profile-img" src="" alt="">
+                <div class="photo-placeholder">Click to Upload Photo</div>
+                <input type="file" id="file-input" accept="image/*" onchange="previewImage(event)" style="display:none">
+            </div>
+
+            <div class="personal-info">
+                <h2 class="section-title">Personal Info</h2>
+                <label>Phone</label>
+                <p contenteditable="true" data-placeholder="+00 000 000 000"></p>
+                <label>Email</label>
+                <p contenteditable="true" data-placeholder="name@email.com"></p>
+                <label>LinkedIn</label>
+                <p contenteditable="true" data-placeholder="linkedin.com/in/user"></p>
+                <label>Address</label>
+                <p contenteditable="true" data-placeholder="City, Country"></p>
+                <label>Nationality</label>
+                <p contenteditable="true" data-placeholder="Nationality"></p>
+                <label>Languages</label>
+                <p contenteditable="true" data-placeholder="English, etc."></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
