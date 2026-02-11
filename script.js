@@ -1,10 +1,8 @@
 function previewImage(event) {
     const reader = new FileReader();
     reader.onload = function() {
-        const img = document.getElementById('profile-img');
-        img.src = reader.result;
-        // Hide text immediately once image is loaded
-        document.getElementById('photo-text').style.display = 'none';
+        document.getElementById('profile-img').src = reader.result;
+        document.getElementById('upload-text').style.display = 'none';
     }
     reader.readAsDataURL(event.target.files[0]);
 }
@@ -16,7 +14,7 @@ function addExperience() {
         <div class="details">
             <strong contenteditable="true" data-placeholder="Job Title"></strong><br>
             <em contenteditable="true" data-placeholder="Company"></em>
-            <ul contenteditable="true"><li>Achievement...</li></ul>
+            <ul contenteditable="true"><li>New responsibility...</li></ul>
         </div>
         <button class="delete-btn no-print" onclick="this.parentElement.remove()">×</button>
     </div>`;
@@ -38,8 +36,7 @@ function addEducation() {
 
 function togglePreview() {
     const isPreview = document.body.classList.toggle('preview-mode');
-    const btn = document.getElementById('previewBtn');
-    btn.innerText = isPreview ? "Back to Edit" : "Preview Mode";
+    document.getElementById('previewBtn').innerText = isPreview ? "Back to Edit" : "Preview Mode";
 }
 
 function downloadPDF() {
@@ -47,16 +44,19 @@ function downloadPDF() {
     const wasPreview = document.body.classList.contains('preview-mode');
     document.body.classList.add('preview-mode');
 
-    html2pdf().from(element).set({
+    const opt = {
         margin: 0,
-        filename: 'resume.pdf',
+        filename: 'My_Resume.pdf',
+        image: { type: 'jpeg', quality: 1 },
         html2canvas: { scale: 3 },
         jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-    }).save().then(() => {
+    };
+
+    html2pdf().from(element).set(opt).save().then(() => {
         if (!wasPreview) document.body.classList.remove('preview-mode');
     });
 }
 
 function resetForm() {
-    if(confirm("Reset everything?")) window.location.reload();
+    if(confirm("Clear all data?")) window.location.reload();
 }
